@@ -10,7 +10,7 @@ import Automatizaciones from "./components/Planes/PlanesAutomatizacion.jsx";
 import Contacto from "./components/Contacto/Contacto.jsx";
 import QuienesSomos from "./components/QuienesSomos/QuienesSomos.jsx";
 import Proyectos from "./components/Projects/Projects.jsx";
-// import ChatWidgetLoader from './components/ChatBot/ChatWidgetLoader.jsx'
+import ChatWidget from "./components/Chatbot/ChatWidget";
 import PaginaProyectos from "./pages/ProyectosPage.jsx";
 import AOS from "aos";
 import { useEffect } from "react";
@@ -110,6 +110,7 @@ function App() {
                   <CoverflowSection />
                   <QuienesSomos />
                   <Contacto />
+                  <ChatWidget />
                   <Footer />
                   {/* <ChatWidgetLoader /> */}
                 </>
