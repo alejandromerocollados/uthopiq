@@ -25,3 +25,6 @@ dist-ssr
 
 # Archivo de configuración
 config.php
+
+# Env files
+.env

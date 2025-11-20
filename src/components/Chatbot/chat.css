@@ -349,6 +349,7 @@
     height: 100vh;
     border-radius: 0;
     max-height: 100vh;
+    background: var(--negro); 
   }
 
   .chat-header {
