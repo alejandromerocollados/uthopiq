@@ -119,7 +119,7 @@ function Footer() {
         <div className="links">
           <a href="#">Política de Privacidad</a>
           <a href="#">Términos de Servicio</a>
-          <a href="#">Cookies</a>
+          <a href="/politica-de-cookies">Cookies</a>
         </div>
       </div>
     </footer>

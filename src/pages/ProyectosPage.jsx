@@ -50,8 +50,6 @@ function ProyectosPage() {
 
   return (
     <>
-      <Navbar />
-
       <div className="proyectos-page">
         <div className="pp-header">
           <h2>Todos los proyectos</h2>
@@ -104,8 +102,6 @@ function ProyectosPage() {
           ))}
         </div>
       </div>
-
-      <Footer />
     </>
   );
 }

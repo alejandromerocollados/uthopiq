@@ -19,6 +19,8 @@ import BeneficiosWeb from "./components/Banners/BeneficiosWeb.jsx";
 import CoverflowSection from "./components/Agents/CoverflowSection";
 import GlobalBackground from "./components/GlobalBackground.jsx";
 import { HelmetProvider, Helmet } from "@vuer-ai/react-helmet-async";
+import CookieConsent from "react-cookie-consent";
+import PoliticaCookies from "./pages/PoliticaCookies.jsx";
 
 function App() {
   // Scroll suave reutilizable
@@ -83,6 +85,7 @@ function App() {
                           "Uthopiq es una agencia de desarrollo web y automatización con inteligencia artificial.",
                       })}
                     </script>
+
                     <script type="application/ld+json">
                       {JSON.stringify({
                         "@context": "https://schema.org",
@@ -106,13 +109,11 @@ function App() {
                   <Proyectos />
                   <Automatizaciones />
                   <CasosUso />
-                  {/* <ComoLoHacemos /> */}
                   <CoverflowSection />
                   <QuienesSomos />
                   <Contacto />
                   <ChatWidget />
                   <Footer />
-                  {/* <ChatWidgetLoader /> */}
                 </>
               }
             />
@@ -146,13 +147,105 @@ function App() {
                     />
                   </Helmet>
 
+                  <Navbar />
                   <PaginaProyectos />
+                  <Footer />
+                </>
+              }
+            />
+            <Route
+              path="/politica-de-cookies"
+              element={
+                <>
+                  <Helmet>
+                    <title>Política de Cookies | Uthopiq</title>
+                    <meta
+                      name="description"
+                      content="Consulta la Política de Cookies de Uthopiq, agencia de desarrollo web y automatización con inteligencia artificial."
+                    />
+                    <meta property="og:type" content="website" />
+                    <meta
+                      property="og:url"
+                      content="https://uthopiq.com/politica-de-cookies"
+                    />
+                    <meta
+                      property="og:title"
+                      content="Política de Cookies | Uthopiq"
+                    />
+                    <meta
+                      property="og:description"
+                      content="Información sobre el uso de cookies en el sitio web de Uthopiq."
+                    />
+                    <meta
+                      property="og:image"
+                      content="https://uthopiq.com/images/uthopon.png"
+                    />
+                  </Helmet>
+                  <Navbar />
+                  <PoliticaCookies />
+                  <Footer />
                 </>
               }
             />
           </Routes>
         </Router>
       </HelmetProvider>
+
+      <CookieConsent debug={false}
+        location="bottom"
+        buttonText="Aceptar"
+        declineButtonText="Rechazar"
+        enableDeclineButton
+        cookieName="uthopiqCookies"
+        style={{
+          background: "var(--negro)",
+          color: "var(--blanco)",
+          fontFamily: "Inter-regular",
+          borderTop: "1px solid var(--gris-oscuro)",
+          zIndex: "12000",
+          padding: "18px 20px",
+        }}
+        contentStyle={{
+          margin: "0 auto",
+          maxWidth: "1400px",
+          fontFamily: "Inter-regular",
+          fontSize: "15px",
+          lineHeight: "1.5",
+        }}
+        buttonStyle={{
+          background: "var(--rojo-primario)",
+          color: "var(--blanco)",
+          borderRadius: "8px",
+          padding: "8px 20px",
+          fontFamily: "Inter-regular",
+          fontWeight: "bold",
+          border: "none",
+          cursor: "pointer",
+        }}
+        declineButtonStyle={{
+          background: "transparent",
+          color: "var(--blanco)",
+          borderRadius: "8px",
+          padding: "8px 20px",
+          fontFamily: "Inter-regular",
+          border: "1px solid var(--blanco)",
+          cursor: "pointer",
+        }}
+        expires={365}
+      >
+        Usamos cookies propias y de terceros para analizar el tráfico y mejorar tu
+        experiencia.{" "}
+        <a
+          href="/politica-de-cookies"
+          style={{
+            color: "var(--rojo-primario)",
+            textDecoration: "underline",
+            fontFamily: "Inter-regular",
+          }}
+        >
+          Más información
+        </a>
+      </CookieConsent>
     </>
   );
 }
