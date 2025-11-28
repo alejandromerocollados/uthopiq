@@ -199,7 +199,7 @@
     }
   }
 
-  .navbar-links-container img {
+  .navbar-links-container > img {
     height: 60px;
     width: auto;
     margin-bottom: 2rem;
@@ -425,4 +425,134 @@
 
 .dropdown-menu .dropdown-link:hover::after {
   width: 100%;
+}
+
+/* ====== SELECTOR DE IDIOMA CON BANDERAS ====== */
+
+.navbar-lang-switcher {
+  position: relative;
+  margin-left: 1rem;
+  margin-right: 0.5rem;
+}
+
+.lang-toggle {
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+  background: transparent;
+  border: 1px solid rgba(255, 255, 255, 0.25);
+  padding: 0.3rem 0.7rem;
+  border-radius: 9999px;
+  cursor: pointer;
+  font-size: 0.9rem;
+  color: var(--blanco);
+}
+
+.lang-toggle:hover {
+  border-color: rgba(255, 255, 255, 0.6);
+}
+
+.lang-flag-img {
+  width: 18px;
+  height: 18px;
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+.lang-code {
+  font-weight: 500;
+}
+
+.lang-chevron {
+  font-size: 0.8rem;
+  opacity: 0.7;
+}
+
+/* Desplegable */
+
+.lang-menu {
+  position: absolute;
+  top: 110%;
+  right: 0;
+  background: #111;
+  border: 1px solid rgba(255, 255, 255, 0.25);
+  border-radius: 0.75rem;
+  padding: 0.25rem 0;
+  min-width: 140px;
+  z-index: 2000;
+}
+
+.lang-menu li {
+  list-style: none;
+}
+
+.lang-menu button {
+  width: 100%;
+  padding: 0.4rem 0.8rem;
+  background: transparent;
+  border: none;
+  color: var(--blanco);
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  cursor: pointer;
+  font-size: 0.9rem;
+  text-align: left;
+}
+
+.lang-menu button:hover {
+  background: #222;
+}
+
+/* ===== SWITCH MÓVIL TIPO TRANSFER2RIDE ===== */
+
+.navbar-lang-mobile {
+  display: none;               /* solo en móvil vía @media */
+  width: 100%;
+  padding-left: 2rem;          /* mismo alineado que los links */
+  margin: 1rem 0 1.5rem;
+}
+
+/* Botón con bandera actual */
+.lang-flag-toggle {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  background: #111;
+  border-radius: 9999px;
+  border: 1px solid var(--rojo-primario);
+  padding: 0.25rem 0.6rem;
+  cursor: pointer;
+  transition: background 0.2s ease, border-color 0.2s ease, transform 0.1s ease;
+}
+
+.lang-flag-toggle img {
+  width: 22px;
+  height: 22px;
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+/* hover sutil con colores Uthopiq */
+.lang-flag-toggle:hover {
+  background: rgba(255, 75, 75, 0.12);
+  border-color: #ff4b4b;
+  transform: translateY(-1px);
+}
+
+/* Mostrar en móvil y ocultar en desktop */
+@media screen and (max-width: 1320px) {
+  .navbar-lang-switcher.navbar-lang-desktop {
+    display: none;  /* oculta el switch grande en móvil */
+  }
+
+  .navbar-lang-mobile {
+    display: block;
+  }
+}
+
+@media screen and (min-width: 1321px) {
+  .navbar-lang-mobile {
+    display: none;
+  }
 }

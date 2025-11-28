@@ -1,36 +1,34 @@
-import './cardProjects.css';
-
-const CATEGORY_LABELS = {
-  'landing': 'Landing',
-  'tienda online': 'Tienda online',
-  'web a medida': 'Web a medida',
-};
+import "./cardProjects.css";
+import { useTranslation } from "react-i18next";
 
 const TYPE_CLASS_BY_CATEGORY = {
-  'landing': 'landing',
-  'tienda online': 'tienda-online',
-  'web a medida': 'web-medida',
+  landing: "landing",
+  tienda_online: "tienda-online",
+  web_a_medida: "web-medida",
 };
 
-function getCategoryFromTags(tags = []) {
-  // Devuelve la primera categoría que encuentre en los tags
-  if (tags.includes('landing')) return 'landing';
-  if (tags.includes('tienda online')) return 'tienda online';
-  if (tags.includes('web a medida')) return 'web a medida';
+function getCategoryKeyFromTags(tags = []) {
+  if (tags.includes("landing")) return "landing";
+  if (tags.includes("tienda online")) return "tienda_online";
+  if (tags.includes("web a medida")) return "web_a_medida";
   return null;
 }
 
 function CardProjects({
   title,
   image,
-  description = '',
+  description = "",
   tags = [],
   link,
   demo,
 }) {
-  const categoryKey = getCategoryFromTags(tags);
-  const typeLabel = CATEGORY_LABELS[categoryKey] || '';
-  const typeClass = TYPE_CLASS_BY_CATEGORY[categoryKey] || '';
+  const { t } = useTranslation();
+
+  const categoryKey = getCategoryKeyFromTags(tags);
+  const typeLabel = categoryKey
+    ? t(`proyectos.categorias.${categoryKey}`)
+    : "";
+  const typeClass = categoryKey ? TYPE_CLASS_BY_CATEGORY[categoryKey] : "";
   const showVisit = !!link;
 
   return (
@@ -62,9 +60,9 @@ function CardProjects({
               href={link}
               target="_blank"
               rel="noopener noreferrer"
-              aria-label={`Ver proyecto de ${title}`}
+              aria-label={`${t("proyectos.boton_ver_proyecto")} ${title}`}
             >
-              Ver proyecto <span>↗</span>
+              {t("proyectos.boton_ver_proyecto")} <span>↗</span>
             </a>
           )}
         </div>

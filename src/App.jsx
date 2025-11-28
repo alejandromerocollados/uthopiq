@@ -23,7 +23,7 @@ import CookieConsent from "react-cookie-consent";
 import PoliticaCookies from "./pages/PoliticaCookies.jsx";
 
 function App() {
-  // Scroll suave reutilizable
+  // Scroll suave reutilizable (lo usa el Hero)
   const scrollToSection = (id) => {
     const section = document.getElementById(id);
     if (section) {
@@ -42,6 +42,7 @@ function App() {
       <HelmetProvider>
         <Router>
           <Routes>
+            {/* ================== HOME ES ================== */}
             <Route
               path="/"
               element={
@@ -69,6 +70,18 @@ function App() {
                     />
                     <meta property="og:site_name" content="Uthopiq" />
                     <meta property="og:locale" content="es_ES" />
+
+                    {/* hreflang ES / EN */}
+                    <link
+                      rel="alternate"
+                      hrefLang="es"
+                      href="https://uthopiq.com/"
+                    />
+                    <link
+                      rel="alternate"
+                      hrefLang="en"
+                      href="https://uthopiq.com/en"
+                    />
 
                     <script type="application/ld+json">
                       {JSON.stringify({
@@ -118,6 +131,69 @@ function App() {
               }
             />
 
+            {/* ================== HOME EN ================== */}
+            <Route
+              path="/en"
+              element={
+                <>
+                  <Helmet>
+                    <title>Uthopiq | Web Development & AI Agency</title>
+                    <meta
+                      name="description"
+                      content="Uthopiq builds modern websites and automates business processes with artificial intelligence. Boost your business with smart digital solutions 24/7."
+                    />
+
+                    <meta property="og:type" content="website" />
+                    <meta
+                      property="og:url"
+                      content="https://uthopiq.com/en"
+                    />
+                    <meta
+                      property="og:title"
+                      content="Uthopiq | Web Development & AI Agency"
+                    />
+                    <meta
+                      property="og:description"
+                      content="Uthopiq develops websites and AI-powered automations to increase your company's efficiency."
+                    />
+                    <meta
+                      property="og:image"
+                      content="https://uthopiq.com/images/uthopon.png"
+                    />
+                    <meta property="og:site_name" content="Uthopiq" />
+                    <meta property="og:locale" content="en_GB" />
+
+                    {/* hreflang ES / EN */}
+                    <link
+                      rel="alternate"
+                      hrefLang="es"
+                      href="https://uthopiq.com/"
+                    />
+                    <link
+                      rel="alternate"
+                      hrefLang="en"
+                      href="https://uthopiq.com/en"
+                    />
+                  </Helmet>
+
+                  <Navbar />
+                  {/* mismos componentes, pero i18next los pone en EN por /en */}
+                  <Hero scrollToSection={scrollToSection} />
+                  <PlanesWeb />
+                  <BeneficiosWeb />
+                  <Proyectos />
+                  <Automatizaciones />
+                  <CasosUso />
+                  <CoverflowSection />
+                  <QuienesSomos />
+                  <Contacto />
+                  <ChatWidget />
+                  <Footer />
+                </>
+              }
+            />
+
+            {/* ================== PROYECTOS ES ================== */}
             <Route
               path="/proyectos"
               element={
@@ -144,6 +220,68 @@ function App() {
                     <meta
                       property="og:image"
                       content="https://uthopiq.com/images/uthopon.png"
+                    />
+                    <meta property="og:locale" content="es_ES" />
+
+                    <link
+                      rel="alternate"
+                      hrefLang="es"
+                      href="https://uthopiq.com/proyectos"
+                    />
+                    <link
+                      rel="alternate"
+                      hrefLang="en"
+                      href="https://uthopiq.com/en/projects"
+                    />
+                  </Helmet>
+
+                  <Navbar />
+                  <PaginaProyectos />
+                  <Footer />
+                </>
+              }
+            />
+
+            {/* ================== PROJECTS EN ================== */}
+            <Route
+              path="/en/projects"
+              element={
+                <>
+                  <Helmet>
+                    <title>Projects | Uthopiq – Web & AI Automation</title>
+                    <meta
+                      name="description"
+                      content="Explore Uthopiq's projects: professional websites, AI automations and custom tech solutions."
+                    />
+
+                    <meta property="og:type" content="website" />
+                    <meta
+                      property="og:url"
+                      content="https://uthopiq.com/en/projects"
+                    />
+                    <meta
+                      property="og:title"
+                      content="Projects | Uthopiq"
+                    />
+                    <meta
+                      property="og:description"
+                      content="See how Uthopiq helps companies digitalize with web development and smart automation."
+                    />
+                    <meta
+                      property="og:image"
+                      content="https://uthopiq.com/images/uthopon.png"
+                    />
+                    <meta property="og:locale" content="en_GB" />
+
+                    <link
+                      rel="alternate"
+                      hrefLang="es"
+                      href="https://uthopiq.com/proyectos"
+                    />
+                    <link
+                      rel="alternate"
+                      hrefLang="en"
+                      href="https://uthopiq.com/en/projects"
                     />
                   </Helmet>
 
@@ -180,8 +318,46 @@ function App() {
                       property="og:image"
                       content="https://uthopiq.com/images/uthopon.png"
                     />
+                    <meta property="og:locale" content="es_ES" />
                   </Helmet>
                   <Navbar />
+                  <PoliticaCookies />
+                  <Footer />
+                </>
+              }
+            />
+
+            <Route
+              path="/en/cookie-policy"
+              element={
+                <>
+                  <Helmet>
+                    <title>Cookie Policy | Uthopiq</title>
+                    <meta
+                      name="description"
+                      content="Read Uthopiq's Cookie Policy, web development and AI automation agency."
+                    />
+                    <meta property="og:type" content="website" />
+                    <meta
+                      property="og:url"
+                      content="https://uthopiq.com/en/cookie-policy"
+                    />
+                    <meta
+                      property="og:title"
+                      content="Cookie Policy | Uthopiq"
+                    />
+                    <meta
+                      property="og:description"
+                      content="Information about cookie usage on Uthopiq's website."
+                    />
+                    <meta
+                      property="og:image"
+                      content="https://uthopiq.com/images/uthopon.png"
+                    />
+                    <meta property="og:locale" content="en_GB" />
+                  </Helmet>
+                  <Navbar />
+                  {/* podrías reutilizar PoliticaCookies con textos traducidos */}
                   <PoliticaCookies />
                   <Footer />
                 </>
@@ -191,7 +367,8 @@ function App() {
         </Router>
       </HelmetProvider>
 
-      <CookieConsent debug={false}
+      <CookieConsent
+        debug={false}
         location="bottom"
         buttonText="Aceptar"
         declineButtonText="Rechazar"
@@ -233,8 +410,8 @@ function App() {
         }}
         expires={365}
       >
-        Usamos cookies propias y de terceros para analizar el tráfico y mejorar tu
-        experiencia.{" "}
+        Usamos cookies propias y de terceros para analizar el tráfico y mejorar
+        tu experiencia.{" "}
         <a
           href="/politica-de-cookies"
           style={{

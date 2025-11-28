@@ -1,0 +1,215 @@
+{
+  "navbar": {
+    "web": "Web",
+    "automatizaciones": "Automations",
+    "quienes_somos": "About us",
+    "blog": "Blog",
+    "cta": "Tell us your idea"
+  },
+  "hero": {
+    "titulo_blanco": "Web Development &",
+    "titulo_rojo": "AI Agency",
+    "subtitulo": "We build modern websites and automate processes with artificial intelligence. Boost your business with technology solutions working 24/7 for you.",
+    "cta": "Contact us now",
+    "beneficio1_titulo": "Custom Development",
+    "beneficio1_texto": "We design tailored solutions for your business to maximize results.",
+    "beneficio2_titulo": "Artificial Intelligence",
+    "beneficio2_texto": "We automate tasks to improve efficiency and reduce operational costs.",
+    "beneficio3_titulo": "Real Support",
+    "beneficio3_texto": "We guide you through every step of the process, from idea to launch."
+  },
+  "planes_web": {
+    "subtitulo": "Boost your business",
+    "titulo": "Our Web Services",
+    "descripcion": "We offer flexible plans that adapt to your project. Whether it's a landing page or an advanced site with automations, we have the ideal solution for you.",
+    "cta": "Request your website"
+  },
+  "beneficios_web": {
+    "titulo": "Why should you have a website?",
+    "b1": "Increase your business visibility",
+    "b2": "Give a professional image to your audience",
+    "b3": "Show your products or services clearly",
+    "b4": "Get contacts and sales 24/7",
+    "b5": "Make tasks like bookings or payments easier"
+  },
+  "planes_data": {
+    "landing": {
+      "titulo": "Landing Page",
+      "descripcion": "A single page to present your value proposition and capture leads clearly and effectively.",
+      "f1": "What it is: a one-page website with scroll sections.",
+      "f2": "When to choose it: perfect if you're starting out or want more visibility for your business.",
+      "f3": "Objective: present your offer and capture leads using a simple form."
+    },
+    "tienda": {
+      "titulo": "Online Store",
+      "descripcion": "Ecommerce to sell products/services with payments, shipping and ready-to-use integrations.",
+      "f1": "What it is: an online store built in WordPress with WooCommerce.",
+      "f2": "When to choose it: ideal to launch and scale online sales quickly and reliably.",
+      "f3": "Objective: increase your online sales with integrated payments and shipping."
+    },
+    "medida": {
+      "titulo": "Custom Web App",
+      "descripcion": "A personalized web app with backend, authentication and advanced features for specific processes.",
+      "f1": "What it is: a custom-made web application tailored to your business needs.",
+      "f2": "When to choose it: when your project requires special features not covered by standard solutions.",
+      "f3": "Objective: give you more control, scalability and customization in your digital processes."
+    }
+  },
+  "proyectos": {
+    "titulo": "Completed Projects",
+    "subtitulo": "Here are some examples of web design and automation solutions we've built.",
+    "aviso_sin_webs": "We will soon add more web development projects.",
+    "cta_ver_todos": "View all",
+    "categorias": {
+      "landing": "Landing",
+      "tienda_online": "Online Store",
+      "web_a_medida": "Custom Web"
+    },
+    "cards": {
+      "samuel_segarra": {
+        "titulo": "Samuel Segarra",
+        "descripcion": "Landing page for Samuel Segarra, nutrition and training coach."
+      },
+      "distrito21": {
+        "titulo": "Distrito 21",
+        "descripcion": "Online store for urban clothing and accessories."
+      },
+      "athletica_pro": {
+        "titulo": "Athletica Pro",
+        "descripcion": "Online store for custom sportswear."
+      },
+      "neurovida": {
+        "titulo": "Neurovida",
+        "descripcion": "Landing page for a neurorehabilitation clinic."
+      }
+    },
+    "boton_ver_proyecto": "View project"
+  },
+  "planes_automatizacion": {
+    "subtitulo": "Optimize your business",
+    "titulo": "AI Automation",
+    "descripcion": "Discover how artificial intelligence can help you save time, reduce costs and improve your customers' experience.",
+    "cta": "Request your automation"
+  },
+  "automatizacion_data": {
+    "automatizaciones": {
+      "titulo": "Automations",
+      "descripcion": "Automated workflows that connect your tools and remove repetitive processes in your business.",
+      "f1": "What it is: processes that integrate your apps and execute tasks without manual intervention.",
+      "f2": "When to choose it: when you waste time on repetitive work like copying data, sending emails or updating records.",
+      "f3": "Objective: optimize your time, reduce errors and save costs."
+    },
+    "chatbots": {
+      "titulo": "Intelligent Chatbots",
+      "descripcion": "Virtual assistants that serve your customers instantly and personally 24/7.",
+      "f1": "What it is: conversational bots integrated in WhatsApp, Telegram or your website.",
+      "f2": "When to choose it: if you receive many recurring questions and need continuous support.",
+      "f3": "Objective: improve customer experience, capture more leads and increase conversions."
+    }
+  },
+  "casos_uso": {
+    "titulo": "Why should you automate?",
+    "l1": "Economic savings",
+    "l2": "More time for what matters",
+    "l3": "Removes repetitive tasks",
+    "l4": "More efficient processes",
+    "l5": "Instant responses to customers"
+  },
+  "agentes": {
+    "titulo": "Our AI Agents",
+    "descripcion": "Each agent has a mission: making your work easier and more efficient.",
+    "cta": "Talk to an agent",
+    "cards": {
+      "axel": {
+        "nombre": "Axel",
+        "rol": "Strategy & Growth",
+        "descripcion": "Analyses your processes and suggests improvements or automations to increase productivity, efficiency and competitiveness in the market."
+      },
+      "ena": {
+        "nombre": "Ena",
+        "rol": "Marketing & Lead Generation",
+        "descripcion": "Attracts and qualifies prospects from your website, ads and social media. Manages automated campaigns, nurtures leads and schedules calls or demos with your team."
+      },
+      "milo": {
+        "nombre": "Milo",
+        "rol": "Data Analysis & Reports",
+        "descripcion": "Centralises sales, marketing and operations data. Builds dashboards and predictive reports to detect opportunities and optimise strategic decisions in real time."
+      },
+      "lynk": {
+        "nombre": "Lynk",
+        "rol": "Conversational Chatbot & Support",
+        "descripcion": "Provides instant support on WhatsApp, Telegram or web chat. Handles customers, manages sales and follows up after purchase with 24/7 conversational AI."
+      },
+      "vex": {
+        "nombre": "Vex",
+        "rol": "Communication & Social Media",
+        "descripcion": "Manages social media, campaigns and online reputation. Schedules content, replies to messages and keeps your brand visually consistent across channels."
+      },
+      "nero": {
+        "nombre": "Nero",
+        "rol": "Voice Assistant",
+        "descripcion": "Answers calls with a natural voice. Schedules appointments, solves doubts and executes tasks connected to your systems 24/7."
+      },
+      "aron": {
+        "nombre": "Aron",
+        "rol": "Finance & Administration",
+        "descripcion": "Automates invoicing, quotes and payments. Tracks cash flow and generates clear, up-to-date financial reports."
+      }
+    }
+  },
+  "quienes": {
+    "titulo": "Who We Are",
+    "intro": "we believe in making the digital world more accessible, professional and automated. We create websites tailored to each business, and connect processes with automations and chatbots that save time and money. We are a young, technical team, eager to turn ideas into practical solutions.",
+    "alejandro_parrafo": "Deeply passionate about web development and process automation, with experience in both areas. He has built multiple projects integrating tools like n8n and custom chatbots to improve efficiency and user experience.",
+    "tomas_parrafo": "With previous experience as a backend developer. He is now focused on web development and automations, areas he is truly passionate about. He combines his technical background with curiosity for solving real problems, creating solutions that optimise processes and improve businesses' digital experience."
+  },
+  "contacto": {
+    "titulo": "Contact",
+    "subtitulo": "Do you have a project or need help? We reply in less than 24h.",
+    "label_nombre": "Name",
+    "label_email": "Email",
+    "label_mensaje": "Message",
+    "placeholder_nombre": "Your name",
+    "placeholder_email": "youremail@example.com",
+    "placeholder_mensaje": "Tell us about your project",
+    "btn_enviar": "Send message",
+    "btn_enviando": "Sending…",
+    "hint": "Reply in < 24h",
+    "texto_correo": "Or write to us at",
+    "swal_falta_nombre": "Name is required",
+    "swal_correo_invalido": "Invalid email",
+    "swal_mensaje_vacio": "Empty message",
+    "swal_completar_captcha": "Please complete the reCAPTCHA",
+    "swal_enviado_title": "Sent!",
+    "swal_enviado_text": "We’ll get back to you in < 24h.",
+    "swal_error_enviar_title": "Error sending",
+    "swal_error_enviar_text_generico": "Please try again.",
+    "swal_error_ocurrio_title": "An error occurred",
+    "swal_error_ocurrio_text": "Try again in a few minutes."
+  },
+  "footer": {
+    "descripcion_parte1": "At",
+    "descripcion_parte2": "we specialise in web development, AI automation and tech mentoring.",
+    "servicios_titulo": "Our Services",
+    "servicios": {
+      "landing": "Landing",
+      "tienda_online": "Online Store",
+      "web_medida": "Custom Website",
+      "automatizaciones": "Automations",
+      "chatbots": "Intelligent chatbots"
+    },
+    "empresa_titulo": "Company",
+    "empresa_inicio": "Home",
+    "empresa_web": "Web",
+    "empresa_automatizaciones": "Automations",
+    "empresa_quienes_somos": "About Us",
+    "empresa_contacto": "Contact",
+    "contacto_titulo": "Contact",
+    "contacto_ciudad": "Elda/Petrer, Alicante – Spain",
+    "bottom_derechos": "All rights reserved.",
+    "link_privacidad": "Privacy Policy",
+    "link_terminos": "Terms of Service",
+    "link_cookies": "Cookies"
+  }
+
+}

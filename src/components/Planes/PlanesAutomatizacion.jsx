@@ -1,40 +1,38 @@
+// components/Planes/PlanesAutomatizacion.jsx
 import "./planes.css";
 import CardPlan from "./CardPlan/CardPlan";
 import automatizacionData from "./automatizacionData";
+import { useTranslation } from "react-i18next";
 
 function PlanesAutomatizacion() {
-  const scrollToSection = (id) => {
-    const goToSection = () => {
-      const interval = setInterval(() => {
-        const section = document.getElementById(id);
-        if (section) {
-          section.scrollIntoView({ behavior: "smooth" });
-          clearInterval(interval);
-        }
-      }, 100);
-    };
+  const { t } = useTranslation();
 
-    if (location.pathname !== "/") {
-      navigate("/");
-      setTimeout(goToSection, 200);
-    } else {
-      goToSection();
+  const scrollToSection = (id) => {
+    const section = document.getElementById(id);
+    if (section) {
+      section.scrollIntoView({ behavior: "smooth" });
     }
   };
+
   return (
     <section className="planes automatizacion-central" id="automatizaciones">
       <div className="planes-header" data-aos="fade-up">
-        <span className="planes-subtitle">Optimiza tu negocio</span>
-        <h2>Automatización con IA</h2>
+        <span className="planes-subtitle">
+          {t("planes_automatizacion.subtitulo")}
+        </span>
+        <h2>{t("planes_automatizacion.titulo")}</h2>
         <p className="planes-descripcion">
-          Descubre cómo la inteligencia artificial puede ayudarte a ahorrar
-          tiempo, reducir costes y mejorar la experiencia de tus clientes.
+          {t("planes_automatizacion.descripcion")}
         </p>
       </div>
 
       <div className="planes-grid" data-aos="fade-up">
-        {automatizacionData.map((plan, index) => (
-          <CardPlan key={index} {...plan} />
+        {automatizacionData.map((plan) => (
+          <CardPlan
+            key={plan.clave}
+            clave={plan.clave}
+            grupo="automatizacion_data"
+          />
         ))}
       </div>
 
@@ -43,7 +41,7 @@ function PlanesAutomatizacion() {
           className="cta-button-outline px-8 py-4 rounded-lg font-medium text-lg border-2"
           onClick={() => scrollToSection("contacto")}
         >
-          Solicita tu automatización
+          {t("planes_automatizacion.cta")}
         </button>
       </div>
     </section>

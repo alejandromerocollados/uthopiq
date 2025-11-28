@@ -1,8 +1,15 @@
+// components/Planes/Planes.jsx
 import "./planes.css";
 import CardPlan from "./CardPlan/CardPlan";
 import planesData from "./planesData";
+import { useTranslation } from "react-i18next";
+import { useLocation, useNavigate } from "react-router-dom";
 
 function Planes() {
+  const { t } = useTranslation();
+  const location = useLocation();
+  const navigate = useNavigate();
+
   const scrollToSection = (id) => {
     const goToSection = () => {
       const interval = setInterval(() => {
@@ -14,28 +21,32 @@ function Planes() {
       }, 100);
     };
 
-    if (location.pathname !== "/") {
+    if (!location.pathname.startsWith("/en") && location.pathname !== "/") {
       navigate("/");
+      setTimeout(goToSection, 200);
+    } else if (location.pathname.startsWith("/en") && location.pathname !== "/en") {
+      navigate("/en");
       setTimeout(goToSection, 200);
     } else {
       goToSection();
     }
   };
+
   return (
     <section className="planes" id="web">
       <div className="planes-header" data-aos="fade-up">
-        <span className="planes-subtitle">Impulsa tu negocio</span>
-        <h2>Nuestros Servicios Web</h2>
+        <span className="planes-subtitle">
+          {t("planes_web.subtitulo")}
+        </span>
+        <h2>{t("planes_web.titulo")}</h2>
         <p className="planes-descripcion">
-          Ofrecemos planes flexibles que se adaptan a tu proyecto. Ya sea una
-          landing page o un sitio avanzado con automatizaciones, tenemos la
-          solución ideal para ti.
+          {t("planes_web.descripcion")}
         </p>
       </div>
 
       <div className="planes-grid" data-aos="fade-up">
-        {planesData.map((plan, index) => (
-          <CardPlan key={index} {...plan} />
+        {planesData.map((plan) => (
+          <CardPlan key={plan.clave} clave={plan.clave} />
         ))}
       </div>
 
@@ -44,7 +55,7 @@ function Planes() {
           className="cta-button-outline px-8 py-4 rounded-lg font-medium text-lg border-2"
           onClick={() => scrollToSection("contacto")}
         >
-          Solicita tu web
+          {t("planes_web.cta")}
         </button>
       </div>
     </section>

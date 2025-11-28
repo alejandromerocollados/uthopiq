@@ -2,11 +2,13 @@ import { useState, useRef } from "react";
 import Swal from "sweetalert2";
 import ReCAPTCHA from "react-google-recaptcha";
 import "./contacto.css";
+import { useTranslation } from "react-i18next";
 
 function Contacto() {
   const [captchaToken, setCaptchaToken] = useState(null);
   const [status, setStatus] = useState("");
   const recaptchaRef = useRef(null);
+  const { t } = useTranslation();
 
   const customSwal = Swal.mixin({
     customClass: {
@@ -28,15 +30,24 @@ function Contacto() {
     const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 
     if (!nombre)
-      return customSwal.fire({ icon: "warning", title: "Falta tu nombre" });
+      return customSwal.fire({
+        icon: "warning",
+        title: t("contacto.swal_falta_nombre"),
+      });
     if (!emailRegex.test(email))
-      return customSwal.fire({ icon: "warning", title: "Correo inválido" });
+      return customSwal.fire({
+        icon: "warning",
+        title: t("contacto.swal_correo_invalido"),
+      });
     if (!mensaje)
-      return customSwal.fire({ icon: "warning", title: "Mensaje vacío" });
+      return customSwal.fire({
+        icon: "warning",
+        title: t("contacto.swal_mensaje_vacio"),
+      });
     if (!captchaToken)
       return customSwal.fire({
         icon: "warning",
-        title: "Completa el reCAPTCHA",
+        title: t("contacto.swal_completar_captcha"),
       });
 
     setStatus("sending");
@@ -53,8 +64,8 @@ function Contacto() {
       if (txt.includes("Mensaje enviado correctamente")) {
         customSwal.fire({
           icon: "success",
-          title: "¡Enviado!",
-          text: "Te respondemos en &lt; 24h.",
+          title: t("contacto.swal_enviado_title"),
+          text: t("contacto.swal_enviado_text"),
         });
         form.reset();
         setCaptchaToken(null);
@@ -62,15 +73,15 @@ function Contacto() {
       } else {
         customSwal.fire({
           icon: "error",
-          title: "Error al enviar",
-          text: txt || "Intenta de nuevo.",
+          title: t("contacto.swal_error_enviar_title"),
+          text: txt || t("contacto.swal_error_enviar_text_generico"),
         });
       }
     } catch {
       customSwal.fire({
         icon: "error",
-        title: "Ocurrió un error",
-        text: "Prueba en unos minutos.",
+        title: t("contacto.swal_error_ocurrio_title"),
+        text: t("contacto.swal_error_ocurrio_text"),
       });
     } finally {
       setStatus("");
@@ -80,13 +91,10 @@ function Contacto() {
   return (
     <section className="contacto" id="contacto">
       <header className="contacto-head" data-aos="fade-up">
-        <h2>Contacto</h2>
-        <p className="contacto-sub">
-          ¿Tienes un proyecto o necesitas ayuda? Respondemos en menos de 24h.
-        </p>
+        <h2>{t("contacto.titulo")}</h2>
+        <p className="contacto-sub">{t("contacto.subtitulo")}</p>
       </header>
 
-      {/* Card con el mismo look que .card-plan */}
       <div
         className="card-contact card-plan"
         data-aos="fade-up"
@@ -95,34 +103,34 @@ function Contacto() {
         <div className="card-contact-body card-plan-body">
           <form className="contact-form" onSubmit={handleSubmit} noValidate>
             <div className="field">
-              <label htmlFor="nombre">Nombre</label>
+              <label htmlFor="nombre">{t("contacto.label_nombre")}</label>
               <input
                 id="nombre"
                 name="nombre"
                 type="text"
-                placeholder="Tu nombre"
+                placeholder={t("contacto.placeholder_nombre")}
                 autoComplete="name"
               />
             </div>
 
             <div className="field">
-              <label htmlFor="email">Correo electrónico</label>
+              <label htmlFor="email">{t("contacto.label_email")}</label>
               <input
                 id="email"
                 name="email"
                 type="email"
-                placeholder="tucorreo@dominio.com"
+                placeholder={t("contacto.placeholder_email")}
                 autoComplete="email"
               />
             </div>
 
             <div className="field field-full">
-              <label htmlFor="mensaje">Mensaje</label>
+              <label htmlFor="mensaje">{t("contacto.label_mensaje")}</label>
               <textarea
                 id="mensaje"
                 name="mensaje"
                 rows="5"
-                placeholder="Cuéntanos sobre tu proyecto"
+                placeholder={t("contacto.placeholder_mensaje")}
               />
             </div>
 
@@ -130,7 +138,7 @@ function Contacto() {
               <ReCAPTCHA
                 ref={recaptchaRef}
                 sitekey="6LeYDIUrAAAAADDSGLNADq0UygjRR2aIQak6w_wT"
-                onChange={(t) => setCaptchaToken(t)}
+                onChange={(tkn) => setCaptchaToken(tkn)}
                 onExpired={() => setCaptchaToken(null)}
                 theme="dark"
               />
@@ -138,12 +146,14 @@ function Contacto() {
 
             <div className="actions field-full">
               <button type="submit" disabled={status === "sending"}>
-                {status === "sending" ? (
+                {status === "sending" && (
                   <span className="spinner" aria-hidden="true" />
-                ) : null}
-                {status === "sending" ? " Enviando…" : "Enviar mensaje"}
+                )}
+                {status === "sending"
+                  ? ` ${t("contacto.btn_enviando")}`
+                  : t("contacto.btn_enviar")}
               </button>
-              <span className="hint">Respuesta en &lt; 24h</span>
+              <span className="hint">{t("contacto.hint")}</span>
             </div>
           </form>
         </div>
@@ -151,7 +161,7 @@ function Contacto() {
 
       <div className="contacto-info" data-aos="fade-up" data-aos-delay="100">
         <p>
-          O escríbenos a{" "}
+          {t("contacto.texto_correo")}{" "}
           <a href="mailto:contacto@uthopiq.com">contacto@uthopiq.com</a>
         </p>
       </div>

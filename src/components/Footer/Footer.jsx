@@ -2,10 +2,18 @@ import { Instagram, Linkedin, Mail, MapPin } from "lucide-react";
 import logo from "/images/logo/uthopon.png";
 import { useNavigate, useLocation } from "react-router-dom";
 import "./footer.css";
+import { useTranslation } from "react-i18next";
 
 function Footer() {
   const navigate = useNavigate();
   const location = useLocation();
+  const { t, i18n } = useTranslation();
+
+  const currentLang = (i18n.resolvedLanguage || i18n.language || "es").slice(
+    0,
+    2
+  );
+  const basePath = currentLang === "en" ? "/en" : "/";
 
   const scrollToSection = (id) => {
     const goToSection = () => {
@@ -18,13 +26,18 @@ function Footer() {
       }, 100);
     };
 
-    if (location.pathname !== "/") {
-      navigate("/");
+    if (location.pathname !== basePath) {
+      navigate(basePath);
       setTimeout(goToSection, 200);
     } else {
       goToSection();
     }
   };
+
+  const cookiesHref =
+    currentLang === "en" ? "/en/cookie-policy" : "/politica-de-cookies";
+
+  const year = new Date().getFullYear();
 
   return (
     <footer className="footer-container">
@@ -32,8 +45,8 @@ function Footer() {
         <div>
           <img src={logo} alt="UTHOPIQ Logo" className="mb-4 w-12 h-12" />
           <p className="footer-description">
-            En <strong>UTHOPIQ</strong> somos especialistas en desarrollo web,
-            automatización con inteligencia artificial y mentoría tecnológica.
+            {t("footer.descripcion_parte1")}{" "}
+            <strong>UTHOPIQ</strong> {t("footer.descripcion_parte2")}
           </p>
           <div className="footer-social">
             <a
@@ -56,49 +69,53 @@ function Footer() {
         </div>
 
         <div>
-          <h3 className="footer-title">Nuestros Servicios</h3>
+          <h3 className="footer-title">{t("footer.servicios_titulo")}</h3>
           <ul className="footer-column">
-            <li>Landing</li>
-            <li>Tienda Online</li>
-            <li>Web a Medida</li>
-            <li>Automatizaciones</li>
-            <li>Chatbots inteligentes</li>
+            <li>{t("footer.servicios.landing")}</li>
+            <li>{t("footer.servicios.tienda_online")}</li>
+            <li>{t("footer.servicios.web_medida")}</li>
+            <li>{t("footer.servicios.automatizaciones")}</li>
+            <li>{t("footer.servicios.chatbots")}</li>
           </ul>
         </div>
 
         <div>
-          <h3 className="footer-title">Empresa</h3>
+          <h3 className="footer-title">{t("footer.empresa_titulo")}</h3>
           <ul className="footer-column footer-links">
             <li>
-              <button onClick={() => scrollToSection("inicio")}>Inicio</button>
+              <button onClick={() => scrollToSection("inicio")}>
+                {t("footer.empresa_inicio")}
+              </button>
             </li>
             <li>
-              <button onClick={() => scrollToSection("web")}>Web</button>
+              <button onClick={() => scrollToSection("web")}>
+                {t("footer.empresa_web")}
+              </button>
             </li>
             <li>
               <button onClick={() => scrollToSection("automatizaciones")}>
-                Automatizaciones
+                {t("footer.empresa_automatizaciones")}
               </button>
             </li>
             <li>
               <button onClick={() => scrollToSection("quienes-somos")}>
-                Quiénes Somos
+                {t("footer.empresa_quienes_somos")}
               </button>
             </li>
             <li>
               <button onClick={() => scrollToSection("contacto")}>
-                Contáctanos
+                {t("footer.empresa_contacto")}
               </button>
             </li>
           </ul>
         </div>
 
         <div>
-          <h3 className="footer-title">Contacto</h3>
+          <h3 className="footer-title">{t("footer.contacto_titulo")}</h3>
           <div className="footer-column footer-contact">
             <div className="flex items-start gap-2">
               <MapPin size={18} className="icon" />
-              <span>Elda/Petrer, Alicante – España</span>
+              <span>{t("footer.contacto_ciudad")}</span>
             </div>
             <div className="flex items-center gap-2">
               <Mail size={18} className="icon" />
@@ -112,14 +129,14 @@ function Footer() {
 
       <div className="footer-bottom">
         <p>
-          &copy;{new Date().getFullYear()}{" "}
-          <span style={{ color: "white", fontWeight: "bold" }}>Uthopiq</span>.
-          Todos los derechos reservados.
+          &copy;{year}{" "}
+          <span style={{ color: "white", fontWeight: "bold" }}>Uthopiq</span>.{" "}
+          {t("footer.bottom_derechos")}
         </p>
         <div className="links">
-          <a href="#">Política de Privacidad</a>
-          <a href="#">Términos de Servicio</a>
-          <a href="/politica-de-cookies">Cookies</a>
+          <a href="#">{t("footer.link_privacidad")}</a>
+          <a href="#">{t("footer.link_terminos")}</a>
+          <a href={cookiesHref}>{t("footer.link_cookies")}</a>
         </div>
       </div>
     </footer>

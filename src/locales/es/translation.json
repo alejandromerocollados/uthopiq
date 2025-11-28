@@ -1,0 +1,215 @@
+{
+  "navbar": {
+    "web": "Web",
+    "automatizaciones": "Automatizaciones",
+    "quienes_somos": "Quiénes somos",
+    "blog": "Blog",
+    "cta": "Coméntanos tu idea"
+  },
+  "hero": {
+    "titulo_blanco": "Desarrollo Web &",
+    "titulo_rojo": "Agencia IA",
+    "subtitulo": "Creamos sitios web modernos y automatizamos procesos con inteligencia artificial. Potencia tu negocio con soluciones tecnológicas que trabajan 24/7 para ti.",
+    "cta": "Contáctanos ahora",
+    "beneficio1_titulo": "Desarrollo a medida",
+    "beneficio1_texto": "Diseñamos soluciones adaptadas a tu negocio para maximizar resultados.",
+    "beneficio2_titulo": "Inteligencia Artificial",
+    "beneficio2_texto": "Automatizamos tareas para mejorar eficiencia y reducir costes operativos.",
+    "beneficio3_titulo": "Acompañamiento real",
+    "beneficio3_texto": "Te asesoramos en cada paso del proceso, desde la idea hasta el lanzamiento."
+  },
+  "planes_web": {
+    "subtitulo": "Impulsa tu negocio",
+    "titulo": "Nuestros Servicios Web",
+    "descripcion": "Ofrecemos planes flexibles que se adaptan a tu proyecto. Ya sea una landing page o un sitio avanzado con automatizaciones, tenemos la solución ideal para ti.",
+    "cta": "Solicita tu web"
+  },
+  "beneficios_web": {
+    "titulo": "¿Por qué deberías tener una web?",
+    "b1": "Aumenta la visibilidad de tu negocio",
+    "b2": "Da una imagen profesional a tu público",
+    "b3": "Muestra tus productos o servicios de forma clara",
+    "b4": "Contacta y vende durante las 24 horas del día",
+    "b5": "Facilita tareas como reservas o cobros"
+  },
+  "planes_data": {
+    "landing": {
+      "titulo": "Landing",
+      "descripcion": "Una página única para presentar tu propuesta de valor y captar contactos de forma clara y directa.",
+      "f1": "Qué es: un sitio de una sola página con secciones en scroll.",
+      "f2": "Cuándo elegirla: ideal si estás empezando o quieres que tu negocio tenga mayor visibilidad.",
+      "f3": "Objetivo: presentar tu oferta y generar leads con un formulario sencillo."
+    },
+    "tienda": {
+      "titulo": "Tienda Online",
+      "descripcion": "Ecommerce para vender productos/servicios con pagos, envíos e integraciones listas para usar.",
+      "f1": "Qué es: una tienda online gestionada en Wordpress con WooCommerce.",
+      "f2": "Cuándo elegirla: para lanzar y escalar ventas online de forma rápida y fiable.",
+      "f3": "Objetivo: aumentar tus ventas online con pagos y envíos integrados."
+    },
+    "medida": {
+      "titulo": "Web A Medida",
+      "descripcion": "Aplicación web personalizada con backend, autenticación y funcionalidades avanzadas para procesos específicos.",
+      "f1": "Qué es: una aplicación web hecha a medida según las necesidades de tu negocio.",
+      "f2": "Cuándo elegirla: cuando tu proyecto requiere funcionalidades especiales que no cubren las soluciones estándar.",
+      "f3": "Objetivo: darte mayor control, escalabilidad y personalización en tus procesos digitales."
+    }
+  },
+  "proyectos": {
+    "titulo": "Proyectos Realizados",
+    "subtitulo": "Aquí algunos ejemplos de soluciones que hemos desarrollado en diseño web y automatización.",
+    "aviso_sin_webs": "Pronto añadiremos proyectos de desarrollo web.",
+    "cta_ver_todos": "Ver todos",
+    "categorias": {
+      "landing": "Landing",
+      "tienda_online": "Tienda online",
+      "web_a_medida": "Web a medida"
+    },
+    "cards": {
+      "samuel_segarra": {
+        "titulo": "Samuel Segarra",
+        "descripcion": "Landing page para Samuel Segarra, coach de nutrición y entrenamiento."
+      },
+      "distrito21": {
+        "titulo": "Distrito 21",
+        "descripcion": "Tienda online de ropa urbana y accesorios."
+      },
+      "athletica_pro": {
+        "titulo": "Athletica Pro",
+        "descripcion": "Tienda online de ropa deportiva personalizada."
+      },
+      "neurovida": {
+        "titulo": "Neurovida",
+        "descripcion": "Landing page para clínica de neurorehabilitación."
+      }
+    },
+    "boton_ver_proyecto": "Ver proyecto"
+  },
+  "planes_automatizacion": {
+    "subtitulo": "Optimiza tu negocio",
+    "titulo": "Automatización con IA",
+    "descripcion": "Descubre cómo la inteligencia artificial puede ayudarte a ahorrar tiempo, reducir costes y mejorar la experiencia de tus clientes.",
+    "cta": "Solicita tu automatización"
+  },
+  "automatizacion_data": {
+    "automatizaciones": {
+      "titulo": "Automatizaciones",
+      "descripcion": "Flujos automáticos que conectan tus herramientas y eliminan procesos repetitivos en tu negocio.",
+      "f1": "Qué es: procesos que integran tus apps y ejecutan tareas sin intervención manual.",
+      "f2": "Cuándo elegirla: cuando pierdes tiempo en trabajos repetitivos como copiar datos, enviar emails o actualizar registros.",
+      "f3": "Objetivo: optimizar tu tiempo, reducir errores y ahorrar costes."
+    },
+    "chatbots": {
+      "titulo": "Chatbots Inteligentes",
+      "descripcion": "Asistentes virtuales que atienden a tus clientes de forma instantánea y personalizada 24/7.",
+      "f1": "Qué es: bots conversacionales integrados en WhatsApp, Telegram o tu web.",
+      "f2": "Cuándo elegirlo: si recibes muchas consultas frecuentes y necesitas dar soporte continuo.",
+      "f3": "Objetivo: mejorar la experiencia del cliente, captar más leads y aumentar las conversiones."
+    }
+  },
+  "casos_uso": {
+    "titulo": "¿Por qué deberías automatizar?",
+    "l1": "Ahorro económico",
+    "l2": "Tendrás más tiempo para lo importante",
+    "l3": "Elimina tareas repetitivas",
+    "l4": "Procesos más eficientes",
+    "l5": "Respuestas instantáneas a clientes"
+  },
+  "agentes": {
+    "titulo": "Nuestros Agentes",
+    "descripcion": "Cada agente tiene una misión: hacer tu trabajo más fácil y eficiente.",
+    "cta": "Habla con un agente",
+    "cards": {
+      "axel": {
+        "nombre": "Axel",
+        "rol": "Estrategia y Crecimiento",
+        "descripcion": "Analiza tus procesos y propone mejoras o automatizaciones para aumentar productividad, eficiencia y competitividad en el mercado."
+      },
+      "ena": {
+        "nombre": "Ena",
+        "rol": "Marketing y Captación de leads",
+        "descripcion": "Atrae y califica prospectos desde tu web, anuncios y redes. Gestiona campañas automatizadas, nutre leads y coordina llamadas o demos con tu equipo. Maximiza conversiones con seguimiento inteligente."
+      },
+      "milo": {
+        "nombre": "Milo",
+        "rol": "Análisis de datos y Reportes",
+        "descripcion": "Centraliza datos de ventas, marketing y operaciones. Crea dashboards y reportes predictivos para detectar oportunidades y optimizar decisiones estratégicas en tiempo real."
+      },
+      "lynk": {
+        "nombre": "Lynk",
+        "rol": "Chatbot conversacional y Soporte",
+        "descripcion": "Ofrece soporte instantáneo en WhatsApp, Telegram o chat web. Atiende clientes, gestiona ventas y da seguimiento postventa con IA conversacional 24/7."
+      },
+      "vex": {
+        "nombre": "Vex",
+        "rol": "Comunicación y Redes sociales",
+        "descripcion": "Administra redes, campañas y reputación digital. Programa contenido, responde mensajes y mantiene la coherencia visual de tu marca en todos los canales."
+      },
+      "nero": {
+        "nombre": "Nero",
+        "rol": "Asistente de voz",
+        "descripcion": "Atiende llamadas y responde con voz natural. Agenda citas, resuelve dudas y ejecuta tareas conectadas a tus sistemas las 24 horas."
+      },
+      "aron": {
+        "nombre": "Aron",
+        "rol": "Finanzas y Administración",
+        "descripcion": "Automatiza facturación, presupuestos y cobros. Supervisa pagos y flujo de caja, generando reportes financieros claros y actualizados."
+      }
+    }
+  },
+  "quienes": {
+    "titulo": "Quiénes Somos",
+    "intro": "creemos en hacer el mundo digital más accesible, profesional y automatizado. Creamos páginas web adaptadas a cada negocio, y conectamos procesos con automatizaciones y chatbots que ahorran tiempo y dinero. Somos un equipo joven, técnico y con muchas ganas de transformar ideas en soluciones prácticas.",
+    "alejandro_parrafo": "Con una fuerte pasión por el desarrollo web y la automatización de procesos. Cuenta con experiencia en ambas áreas, habiendo desarrollado múltiples proyectos que integran herramientas como n8n y chatbots personalizados para mejorar la eficiencia y la experiencia del usuario.",
+    "tomas_parrafo": "Con experiencia previa como desarrollador backend. Actualmente enfocado en el desarrollo web y las automatizaciones, áreas que le apasionan profundamente. Combina su base técnica con una gran curiosidad por resolver problemas reales, creando soluciones que optimizan procesos y mejoran la experiencia digital de los negocios."
+  },
+  "contacto": {
+    "titulo": "Contacto",
+    "subtitulo": "¿Tienes un proyecto o necesitas ayuda? Respondemos en menos de 24h.",
+    "label_nombre": "Nombre",
+    "label_email": "Correo electrónico",
+    "label_mensaje": "Mensaje",
+    "placeholder_nombre": "Tu nombre",
+    "placeholder_email": "tucorreo@dominio.com",
+    "placeholder_mensaje": "Cuéntanos sobre tu proyecto",
+    "btn_enviar": "Enviar mensaje",
+    "btn_enviando": "Enviando…",
+    "hint": "Respuesta en < 24h",
+    "texto_correo": "O escríbenos a",
+    "swal_falta_nombre": "Falta tu nombre",
+    "swal_correo_invalido": "Correo inválido",
+    "swal_mensaje_vacio": "Mensaje vacío",
+    "swal_completar_captcha": "Completa el reCAPTCHA",
+    "swal_enviado_title": "¡Enviado!",
+    "swal_enviado_text": "Te respondemos en < 24h.",
+    "swal_error_enviar_title": "Error al enviar",
+    "swal_error_enviar_text_generico": "Intenta de nuevo.",
+    "swal_error_ocurrio_title": "Ocurrió un error",
+    "swal_error_ocurrio_text": "Prueba en unos minutos."
+  },
+  "footer": {
+    "descripcion_parte1": "En",
+    "descripcion_parte2": "somos especialistas en desarrollo web, automatización con inteligencia artificial y mentoría tecnológica.",
+    "servicios_titulo": "Nuestros Servicios",
+    "servicios": {
+      "landing": "Landing",
+      "tienda_online": "Tienda Online",
+      "web_medida": "Web a Medida",
+      "automatizaciones": "Automatizaciones",
+      "chatbots": "Chatbots inteligentes"
+    },
+    "empresa_titulo": "Empresa",
+    "empresa_inicio": "Inicio",
+    "empresa_web": "Web",
+    "empresa_automatizaciones": "Automatizaciones",
+    "empresa_quienes_somos": "Quiénes Somos",
+    "empresa_contacto": "Contáctanos",
+    "contacto_titulo": "Contacto",
+    "contacto_ciudad": "Elda/Petrer, Alicante – España",
+    "bottom_derechos": "Todos los derechos reservados.",
+    "link_privacidad": "Política de Privacidad",
+    "link_terminos": "Términos de Servicio",
+    "link_cookies": "Cookies"
+  }
+
+}

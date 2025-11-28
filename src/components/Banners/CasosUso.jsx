@@ -1,25 +1,31 @@
+// components/Banners/CasosUso.jsx
 import "./banners.css";
+import { useTranslation } from "react-i18next";
 
 function CasosUso() {
+  const { t } = useTranslation();
+
   return (
     <section className="casos-uso-fondo">
       <div className="casos-uso-container" data-aos="fade-up">
-        <h2 className="casos-uso-title">¿Por qué deberías automatizar?</h2>
+        <h2 className="casos-uso-title">
+          {t("casos_uso.titulo")}
+        </h2>
         <ul className="casos-uso-lista">
           <li>
-            <span>✔</span> Ahorro económico
+            <span>✔</span> {t("casos_uso.l1")}
           </li>
           <li>
-            <span>✔</span> Tendrás más tiempo para lo importante
+            <span>✔</span> {t("casos_uso.l2")}
           </li>
           <li>
-            <span>✔</span> Elimina tareas repetitivas
+            <span>✔</span> {t("casos_uso.l3")}
           </li>
           <li>
-            <span>✔</span> Procesos más eficientes
+            <span>✔</span> {t("casos_uso.l4")}
           </li>
           <li>
-            <span>✔</span> Respuestas instantáneas a clientes
+            <span>✔</span> {t("casos_uso.l5")}
           </li>
         </ul>
       </div>
