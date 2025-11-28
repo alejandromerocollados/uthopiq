@@ -1,44 +1,75 @@
 import './cardProjects.css';
 
-function isAutomationByTags(tags = []) {
-  return tags.some(t => t === 'automatizacion' || t === 'chatbot');
+const CATEGORY_LABELS = {
+  'landing': 'Landing',
+  'tienda online': 'Tienda online',
+  'web a medida': 'Web a medida',
+};
+
+const TYPE_CLASS_BY_CATEGORY = {
+  'landing': 'landing',
+  'tienda online': 'tienda-online',
+  'web a medida': 'web-medida',
+};
+
+function getCategoryFromTags(tags = []) {
+  // Devuelve la primera categoría que encuentre en los tags
+  if (tags.includes('landing')) return 'landing';
+  if (tags.includes('tienda online')) return 'tienda online';
+  if (tags.includes('web a medida')) return 'web a medida';
+  return null;
 }
 
-function CardProjects({ title, image, tags = [], link, demo }) {
-  const showVisit = !!link && !isAutomationByTags(tags);
+function CardProjects({
+  title,
+  image,
+  description = '',
+  tags = [],
+  link,
+  demo,
+}) {
+  const categoryKey = getCategoryFromTags(tags);
+  const typeLabel = CATEGORY_LABELS[categoryKey] || '';
+  const typeClass = TYPE_CLASS_BY_CATEGORY[categoryKey] || '';
+  const showVisit = !!link;
 
   return (
-    <div className="card-project" tabIndex={0}>
+    <article className="card-project" tabIndex={0}>
       <div className="card-project-media">
         <img src={image} alt={title} loading="lazy" />
         {demo && <div className="demo-label">DEMO</div>}
       </div>
 
-      {/* NUEVO wrapper para aplicar el panel interior tipo glass */}
-      <div className="card-project-body">
-        <h4 className="card-project-title">{title}</h4>
+      <div className="card-project-content">
+        <div className="card-project-header">
+          <h4 className="card-project-title">{title}</h4>
+
+          {typeLabel && (
+            <span className={`card-project-type ${typeClass}`}>
+              {typeLabel}
+            </span>
+          )}
+        </div>
+
+        {description && (
+          <p className="card-project-description">{description}</p>
+        )}
 
         <div className="card-project-footer">
-          <div className="tags">
-            {tags.map((tag, i) => (
-              <span key={i} className="tag">#{tag}</span>
-            ))}
-          </div>
-
           {showVisit && (
             <a
-              className="visit-btn"
+              className="card-project-link"
               href={link}
               target="_blank"
               rel="noopener noreferrer"
-              aria-label={`Visitar web de ${title}`}
+              aria-label={`Ver proyecto de ${title}`}
             >
-              Visitar web
+              Ver proyecto <span>↗</span>
             </a>
           )}
         </div>
       </div>
-    </div>
+    </article>
   );
 }
 

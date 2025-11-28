@@ -8,7 +8,7 @@ function isAutomation(p) {
 }
 
 function Projects() {
-  const webProjects = allProjects.filter(p => !isAutomation(p));
+  const webProjects = allProjects.filter(p => !isAutomation(p)).slice(0, 3); 
   const automationProjects = allProjects.filter(p => isAutomation(p));
 
   return (
