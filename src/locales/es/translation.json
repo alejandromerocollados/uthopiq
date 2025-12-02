@@ -70,6 +70,11 @@
         "titulo": "Samuel Segarra",
         "descripcion": "Landing page para Samuel Segarra, coach de nutrición y entrenamiento."
       },
+      "tomas_primo": {
+        "titulo": "Tomás Primo",
+        "descripcion": "Landing page para Tomás Primo, desarrollador full-stack y experto en automatizaciones."
+
+      },
       "distrito21": {
         "titulo": "Distrito 21",
         "descripcion": "Tienda online de ropa urbana y accesorios."

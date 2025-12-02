@@ -7,8 +7,15 @@ const projectsData = [
     demo: false,
   },
   {
+    id: "tomas_primo",
+    image: "/images/tomasprimo.png",
+    tags: ["landing"],
+    link: "https://tomasprimo.es/",
+    demo: false,
+  },
+  {
     id: "distrito21",
-    image: "/images/distrito21-img.png",
+    image: "/images/distrito21.png",
     tags: ["tienda online"],
     link: "https://distrito21.uthopiq.com/",
     demo: true,
