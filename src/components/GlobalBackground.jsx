@@ -20,34 +20,24 @@ export default function GlobalBackground() {
     canvas.style.background = "#000";
 
     // -------- Parámetros (equilibrio fluidez/rendimiento) --------
-    const RED_RATIO = 0.28;
-    const MIN_COUNT = 60;
-    const MAX_COUNT = 180;
-
-    const SPEED = 0.085; // como pediste: un pelín más rápido que la versión lenta
-    const DRIFT = 0.26;
+    const MIN_COUNT = 20;
+    const MAX_COUNT = 50;
 
     const TWINKLE_MIN = 0.6;
     const TWINKLE_MAX = 1.0;
-    const SIZE_MIN = 0.9;
-    const SIZE_MAX = 1.8;
-
-    // Aleatoriedad suave extra
-    const NOISE_AMP = 0.22;
-    const NOISE_FREQ_MIN = 0.4;
-    const NOISE_FREQ_MAX = 0.9;
+    const SIZE_MIN = 0.3;
+    const SIZE_MAX = 1.2;
 
     // Estrellas fugaces (más visibles)
-    const METEOR_MIN_INTERVAL = 2200; // antes 3500
-    const METEOR_MAX_INTERVAL = 5200; // antes 9000
+    const METEOR_MIN_INTERVAL = 2200;
+    const METEOR_MAX_INTERVAL = 5200;
     const METEOR_SPEED = 14;
     const METEOR_LEN = 220;
     const METEOR_THICK = 2.0;
-    const METEOR_LIFE = 1200; // ms
-    const METEOR_MAX_COUNT = 4; // límite simultáneo para rendimiento
+    const METEOR_LIFE = 1200;
+    const METEOR_MAX_COUNT = 4;
 
     const WHITE = "#ffffff";
-    const RED = "#ff4b4b";
 
     const clampDPR = (dpr) => Math.min(1.25, dpr || 1);
     const getViewport = () => {
@@ -72,6 +62,7 @@ export default function GlobalBackground() {
     setSize();
 
     // -------- Partículas --------
+    // -------- Partículas --------
     const stars = [];
     const reseed = () => {
       stars.length = 0;
@@ -82,37 +73,27 @@ export default function GlobalBackground() {
       for (let i = 0; i < target; i++) {
         const x = Math.random() * w;
         const y = Math.random() * h;
-        const dir = Math.random() * Math.PI * 2;
-        const spd = SPEED * (0.6 + Math.random() * 0.8); // 0.051–0.122
-        const vx = Math.cos(dir) * spd;
-        const vy = Math.sin(dir) * spd;
         const phase = Math.random() * Math.PI * 2;
         const tw = 0.35 + Math.random() * 0.6;
         const nSeed = Math.random() * 1000;
-        const nFreq =
-          NOISE_FREQ_MIN + Math.random() * (NOISE_FREQ_MAX - NOISE_FREQ_MIN);
+        const nFreq = 0.4 + Math.random() * (0.9 - 0.4);
         stars.push({
           x,
           y,
-          vx,
-          vy,
+          vx: 0, // Sin movimiento horizontal
+          vy: 0, // Sin movimiento vertical
           s: SIZE_MIN + Math.random() * (SIZE_MAX - SIZE_MIN),
-          red: Math.random() < RED_RATIO,
+          red: false, // Estrellas blancas
           phase,
           tw,
           nSeed,
           nFreq,
+          moveX: Math.random() * 0.5 - 0.25, // Movimiento suave en X
+          moveY: Math.random() * 0.5 - 0.25, // Movimiento suave en Y
         });
       }
     };
     reseed();
-
-    // Campo direccional sutil
-    const field = (x, y, t) => {
-      const s1 = Math.sin(x * 0.0008 + t * 0.1);
-      const s2 = Math.cos(y * 0.0007 - t * 0.08);
-      return { x: s2 * DRIFT * 0.035, y: s1 * DRIFT * 0.035 };
-    };
 
     // -------- Estrellas fugaces --------
     const meteors = [];
@@ -209,9 +190,9 @@ export default function GlobalBackground() {
     document.addEventListener("visibilitychange", onVis);
 
     // -------- Bucle: render ~38 FPS con simulación fija a 60 Hz --------
-    const RENDER_FRAME_MS = 26; // ~38 FPS (más fluido que 30)
-    const FIXED_DT = 1 / 60; // simulación estable
-    const MAX_STEPS = 2; // cap sub-steps por frame para rendimiento
+    const RENDER_FRAME_MS = 26;
+    const FIXED_DT = 1 / 60;
+    const MAX_STEPS = 2;
 
     let lastTime = performance.now();
     let lastRender = lastTime;
@@ -224,7 +205,6 @@ export default function GlobalBackground() {
       lastTime = now;
       accumulator += frameTime;
 
-      // Step lógico fijo (máx 2 por frame para no cargar CPU)
       let steps = 0;
       while (accumulator >= FIXED_DT && steps < MAX_STEPS) {
         step(FIXED_DT, now);
@@ -232,7 +212,6 @@ export default function GlobalBackground() {
         steps++;
       }
 
-      // Render con pequeño throttle
       if (now - lastRender >= RENDER_FRAME_MS) {
         draw(now);
         lastRender = now;
@@ -244,7 +223,6 @@ export default function GlobalBackground() {
     function step(dt, now) {
       const t = now * 0.001;
 
-      // Spawning meteors
       if (now >= nextMeteorAt) {
         spawnMeteor();
         nextMeteorAt = now + randInterval();
@@ -253,28 +231,29 @@ export default function GlobalBackground() {
       // Partículas
       for (let i = 0; i < stars.length; i++) {
         const p = stars[i];
-        const v = field(p.x, p.y, t);
-        p.x += (p.vx + v.x) * (dt / FIXED_DT) * 0.6; // factor suave para evitar micro-jitters
-        p.y += (p.vy + v.y) * (dt / FIXED_DT) * 0.6;
+        const osc = (Math.sin(p.phase) + 1) * 0.5;
+        const a = TWINKLE_MIN + (TWINKLE_MAX - TWINKLE_MIN) * osc;
 
-        // “flote” aleatorio
-        const nx = Math.sin((t + p.nSeed) * p.nFreq) * NOISE_AMP;
-        const ny = Math.cos((t * 1.2 + p.nSeed * 1.3) * p.nFreq) * NOISE_AMP;
-        p.x += nx;
-        p.y += ny;
+        // Movimiento suave (el pequeño movimiento de las estrellas)
+        p.x += p.moveX;
+        p.y += p.moveY;
 
-        // Wrap
-        const M = 2;
-        if (p.x < -M) p.x = w + M;
-        if (p.x > w + M) p.x = -M;
-        if (p.y < -M) p.y = h + M;
-        if (p.y > h + M) p.y = -M;
+        // Asegurarse de que las estrellas no salgan de la pantalla
+        if (p.x > w) p.x = 0;
+        if (p.x < 0) p.x = w;
+        if (p.y > h) p.y = 0;
+        if (p.y < 0) p.y = h;
 
-        // Twinkle
-        p.phase += p.tw * dt;
+        const s = p.s;
+        const px = Math.round(p.x - s * 0.5);
+        const py = Math.round(p.y - s * 0.5);
+
+        ctx.globalAlpha = a;
+        ctx.fillStyle = WHITE;
+        ctx.fillRect(px, py, s, s);
       }
 
-      // Meteors
+      // Meteors (se mantiene igual)
       for (let i = meteors.length - 1; i >= 0; i--) {
         const m = meteors[i];
         m.x += m.vx * (dt / FIXED_DT);
@@ -295,7 +274,7 @@ export default function GlobalBackground() {
     function draw(now) {
       ctx.clearRect(0, 0, w, h);
 
-      // Estrellas normales
+      // Estrellas normales (fijas)
       for (let i = 0; i < stars.length; i++) {
         const p = stars[i];
         const osc = (Math.sin(p.phase) + 1) * 0.5;
@@ -306,7 +285,7 @@ export default function GlobalBackground() {
         const py = Math.round(p.y - s * 0.5);
 
         ctx.globalAlpha = a;
-        ctx.fillStyle = p.red ? RED : WHITE;
+        ctx.fillStyle = WHITE;
         ctx.fillRect(px, py, s, s);
       }
 
@@ -333,7 +312,6 @@ export default function GlobalBackground() {
         ctx.lineTo(m.x, m.y);
         ctx.stroke();
 
-        // pequeño “core” para que se vean un poco más
         ctx.shadowBlur = 0;
         ctx.globalAlpha = Math.max(0, fade);
         ctx.fillStyle = WHITE;
@@ -347,7 +325,6 @@ export default function GlobalBackground() {
 
     rafRef.current = requestAnimationFrame(loop);
 
-    // Limpieza
     return () => {
       if (rafRef.current) cancelAnimationFrame(rafRef.current);
       window.removeEventListener("resize", onAnyResize);

@@ -1,48 +1,59 @@
-import { useState, useEffect, useMemo, useRef } from 'react';
-import CardProjects from '../components/Projects/CardProjects/CardProjects';
-import projectsData from '../components/Projects/projectsData';
-import Navbar from '../components/Navbar/Navbar';
-import Footer from '../components/Footer/Footer';
-import './proyectosPage.css';
+import { useState, useEffect, useMemo, useRef } from "react";
+import CardProjects from "../components/Projects/CardProjects/CardProjects";
+import projectsData from "../components/Projects/projectsData";
+import Navbar from "../components/Navbar/Navbar";
+import Footer from "../components/Footer/Footer";
+import { useTranslation } from "react-i18next";
+import "./proyectosPage.css";
 
 const CATEGORIES = [
-  { key: 'todos', label: 'Todos' },
-  { key: 'landing', label: 'Landing' },
-  { key: 'tienda online', label: 'Tienda online' },
-  { key: 'web a medida', label: 'Web a medida' }
+  { key: "todos", label: "Todos" },
+  { key: "landing", label: "Landing" },
+  { key: "tienda online", label: "Tienda online" },
+  { key: "web a medida", label: "Web a medida" },
 ];
 
 function ProyectosPage() {
-  const [active, setActive] = useState('todos');
+  const { t } = useTranslation();
+  const [active, setActive] = useState("todos");
   const tabsRef = useRef([]);
 
-  useEffect(() => { window.scrollTo(0, 0); }, []);
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
 
   // Conteo por categoría (y visibilidad de tabs)
   const counts = useMemo(() => {
     const map = { todos: projectsData.length };
     for (const { key } of CATEGORIES) {
-      if (key === 'todos') continue;
-      map[key] = projectsData.filter(p => p.tags?.includes(key)).length;
+      if (key === "todos") continue;
+      map[key] = projectsData.filter((p) => p.tags?.includes(key)).length;
     }
     return map;
   }, []);
 
   const visibleTabs = useMemo(
-    () => CATEGORIES.filter(c => c.key === 'todos' || counts[c.key] > 0),
+    () => CATEGORIES.filter((c) => c.key === "todos" || counts[c.key] > 0),
     [counts]
   );
 
   const proyectosFiltrados = useMemo(() => {
-    if (active === 'todos') return projectsData;
-    return projectsData.filter(p => p.tags?.includes(active));
-  }, [active]);
+    const filtered =
+      active === "todos"
+        ? projectsData
+        : projectsData.filter((p) => p.tags?.includes(active));
+    return filtered.map((p) => ({
+      ...p,
+      title: t(`proyectos.cards.${p.id}.titulo`), // Traduce el título
+      description: t(`proyectos.cards.${p.id}.descripcion`), // Traduce la descripción
+    }));
+  }, [active, t]);
 
   // Navegación con flechas
   const handleKeyDown = (e, idx) => {
-    if (e.key !== 'ArrowLeft' && e.key !== 'ArrowRight') return;
+    if (e.key !== "ArrowLeft" && e.key !== "ArrowRight") return;
     e.preventDefault();
-    const dir = e.key === 'ArrowRight' ? 1 : -1;
+    const dir = e.key === "ArrowRight" ? 1 : -1;
     const next = (idx + dir + visibleTabs.length) % visibleTabs.length;
     setActive(visibleTabs[next].key);
     tabsRef.current[next]?.focus();
@@ -52,7 +63,7 @@ function ProyectosPage() {
     <>
       <div className="proyectos-page">
         <div className="pp-header">
-          <h2>Todos los proyectos</h2>
+          <h2>{t("proyectos.titulo")}</h2>
           <span className="pp-underline" aria-hidden="true"></span>
         </div>
 
@@ -61,25 +72,27 @@ function ProyectosPage() {
           {visibleTabs.map((tab, i) => {
             const isActive = active === tab.key;
             return (
-                <button
+              <button
                 key={tab.key}
                 role="tab"
                 aria-selected={isActive}
                 aria-controls={`panel-${tab.key}`}
                 id={`tab-${tab.key}`}
-                className={`pp-tab ${isActive ? 'active' : ''}`}
+                className={`pp-tab ${isActive ? "active" : ""}`}
                 onClick={() => setActive(tab.key)}
                 onKeyDown={(e) => handleKeyDown(e, i)}
-                ref={el => (tabsRef.current[i] = el)}
-                >
+                ref={(el) => (tabsRef.current[i] = el)}
+              >
                 <span className="pp-tab-label">
-                    {tab.label}
-                    {isActive && <span className="pp-tab-underline" aria-hidden="true" />}
+                  {tab.label}
+                  {isActive && (
+                    <span className="pp-tab-underline" aria-hidden="true" />
+                  )}
                 </span>
-                <span className="pp-count">{counts[tab.key]}</span> 
-                </button>
+                <span className="pp-count">{counts[tab.key]}</span>
+              </button>
             );
-            })}
+          })}
         </div>
 
         {/* Grid */}
@@ -92,8 +105,8 @@ function ProyectosPage() {
           {proyectosFiltrados.map((p, index) => (
             <CardProjects
               key={index}
-              title={p.title}
-              description={p.description}
+              title={p.title} // Título traducido
+              description={p.description} // Descripción traducida
               image={p.image}
               tags={p.tags}
               link={p.link}
