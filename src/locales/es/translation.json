@@ -75,18 +75,11 @@
         "descripcion": "Landing page para Tomás Primo, desarrollador full-stack y experto en automatizaciones."
 
       },
-      "distrito21": {
-        "titulo": "Distrito 21",
-        "descripcion": "Tienda online de ropa urbana y accesorios."
-      },
-      "athletica_pro": {
-        "titulo": "Athletica Pro",
-        "descripcion": "Tienda online de ropa deportiva personalizada."
-      },
-      "neurovida": {
-        "titulo": "Neurovida",
-        "descripcion": "Landing page para clínica de neurorehabilitación."
-      }
+      "alejandro_romero": {
+        "titulo": "Alejandro Romero",
+        "descripcion": "Landing page para Alejandro Romero, desarrollador web y experto automatizador de procesos."
+
+    }
     },
     "boton_ver_proyecto": "Ver proyecto"
   },
